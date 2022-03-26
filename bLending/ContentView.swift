@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage("login_status") var login_status = false
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        if login_status {
+            HomeView()
+        } else {
+            KakaoLoginView()
+        }
     }
 }
 
