@@ -34,8 +34,6 @@ struct bLendingApp: App {
             })
         }
     }
-    
-
 }
 
 // Firebase initializing
