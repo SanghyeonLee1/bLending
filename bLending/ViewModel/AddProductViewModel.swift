@@ -41,31 +41,54 @@ class AddProductViewModel: ObservableObject {
 
                 //user.id != nil ? String(user!.id!) : ""
                 
+                UploadImage(imageData: self.product_image, path: "product_photos/" + String(uid!)) { (url) in
+                    self.ref.collection("Products").document().setData([
+                    //self.ref.collection("Products").document(uid).setData([
+                        "uid" : uid,
+                        "imageUrl" : url
+        //                "productName" : self.product_name,
+        //                "productPrice" : self.product_price,
+        //                "productPriceUnit" : self.product_price_unit,
+        //                "productDescription1" : self.product_description_1,
+        //                "productDescription2" : self.product_description_2,
+        //                "productDescription3" : self.product_description_3,
+        //                "dateCreated" : Date()
+                    ]) { (err) in
+                        if err != nil {
+                            self.isLoading = false
+                            return
+                        }
+                        
+                        self.isLoading = false
+                        self.status = true
+                    }
+                }
+                
                 _ = user
             }
         }
         
-        UploadImage(imageData: product_image, path: "product_photos") { (url) in
-            self.ref.collection("Products").document().setData([
-            //self.ref.collection("Products").document(uid).setData([
-                //"uid" : uid,
-                "imageUrl" : url,
-                "productName" : self.product_name,
-                "productPrice" : self.product_price,
-                "productPriceUnit" : self.product_price_unit,
-                "productDescription1" : self.product_description_1,
-                "productDescription2" : self.product_description_2,
-                "productDescription3" : self.product_description_3,
-                "dateCreated" : Date()
-            ]) { (err) in
-                if err != nil {
-                    self.isLoading = false
-                    return
-                }
-                
-                self.isLoading = false
-                self.status = true
-            }
-        }
+//        UploadImage(imageData: product_image, path: "product_photos") { (url) in
+//            self.ref.collection("Products").document().setData([
+//            //self.ref.collection("Products").document(uid).setData([
+//                //"uid" : uid,
+//                "imageUrl" : url
+////                "productName" : self.product_name,
+////                "productPrice" : self.product_price,
+////                "productPriceUnit" : self.product_price_unit,
+////                "productDescription1" : self.product_description_1,
+////                "productDescription2" : self.product_description_2,
+////                "productDescription3" : self.product_description_3,
+////                "dateCreated" : Date()
+//            ]) { (err) in
+//                if err != nil {
+//                    self.isLoading = false
+//                    return
+//                }
+//
+//                self.isLoading = false
+//                self.status = true
+//            }
+//        }
     }
 }

@@ -32,8 +32,8 @@ func UploadImage(imageData: [UIImage], path: String, completion: @escaping (Stri
                         return
                     }
                     
-                    //storage.child(path).child(uid).downloadURL { (url, err) in
-                    storage.child(path).downloadURL { (url, err) in
+                    storage.child(path).child(String(uid!)).downloadURL { (url, err) in
+                    //storage.child(path).downloadURL { (url, err) in
                         if err != nil {
                             completion("")
                             return
