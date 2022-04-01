@@ -12,13 +12,14 @@ struct AddProductView: View {
     @StateObject var addProductVM = AddProductViewModel()
     
     @State private var isPresented: Bool = false
+    //@State var pickerResult: [UIImage] = []
     @State var pickerResult: [UIImage] = []
     //@State var pickerResult = Data(count: 0)
     var config: PHPickerConfiguration {
         var config = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
         
         config.filter = .images //videos, livePhotos
-        config.selectionLimit = 1
+        config.selectionLimit = 5
         return config
     }
     
