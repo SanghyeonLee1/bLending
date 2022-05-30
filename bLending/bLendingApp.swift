@@ -19,7 +19,7 @@ import KakaoSDKAuth
 struct bLendingApp: App {
     // Kakao SDK initializing
     init() {
-        KakaoSDK.initSDK(appKey: "67b64dcd767f89e879e09e7cc8806b58")
+        KakaoSDK.initSDK(appKey: "6721831ce7b6ebc105a4ed0a1e839e70")
     }
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate

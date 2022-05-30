@@ -33,6 +33,7 @@ func UploadImage(imageData: [UIImage], path: String, completion: @escaping (Stri
                         completion("")
                         return
                     }
+                    print("path is: \(path) and ")
                     
                     ////storage.child(path).child(String(uid!)).downloadURL { (url, err) in
                     storage.child(path).child(String(i)).downloadURL { (url, err) in

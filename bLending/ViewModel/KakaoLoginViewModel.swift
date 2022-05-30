@@ -50,6 +50,7 @@ class KakaoLoginViewModel: ObservableObject {
                 print(error)
             }
             else {
+                self.login_status = false
                 print("logout() success.")
             }
         }

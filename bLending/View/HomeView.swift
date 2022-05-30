@@ -7,14 +7,16 @@
 
 import SwiftUI
 
+
 struct HomeView: View {
     @State private var isPresented: Bool = false
+    @StateObject var kakaoLogin = KakaoLoginViewModel()
     
     var body: some View {
         VStack {
             HStack {
                 Button(action: {
-                    
+                    kakaoLogin.kakaoLogout()
                 }, label: {
                     Text("Log out")
                         .padding()
