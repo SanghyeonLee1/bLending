@@ -39,6 +39,7 @@ class KakaoLoginViewModel: ObservableObject {
                 print("login with Kakao Account() success.")
                 
                 self.login_status = true
+                
                 _ = oauthToken
             }
         }
